@@ -18,7 +18,7 @@ public class LogMessages {
         InputStream is = null;
         try {
 
-            String LOG_FILE_PATH="D:\\Verisk\\Logger\\Log4j.properties";
+            String LOG_FILE_PATH="D:\\Logger\\Log4j.properties";
             is = new BufferedInputStream(new FileInputStream(LOG_FILE_PATH));
             Properties ps = new Properties();
             ps.load(is);
