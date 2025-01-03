@@ -1,0 +1,83 @@
+<div
+  class="modal fade"
+  #uploadModal
+  id="uploadModal"
+  tabindex="-1"
+  aria-labelledby="uploadModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- Modal Header -->
+        <h5 class="modal-title" id="uploadModalLabel">Upload Files</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeScreen()"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="container">
+          <!-- Button to open file input dialog -->
+          <button class="btn btn-primary" (click)="fileInput.click()">Select Files</button>
+
+          <!-- Supported file format notice -->
+          <p class="text-success mt-2" style="font-size: 0.9em;">
+            Supported file formats: pdf, tif, tiff, jpg, jpeg, png
+          </p>
+          <!-- Hidden file input to handle file selection -->
+          <input
+            type="file"
+            style="display: none"
+            #fileInput
+            (change)="onFileChanged($event)"
+            multiple
+          />
+
+          <!-- Display list of selected files -->
+          <div *ngFor="let selected of listOfFiles; let index = index" class="file-item">
+            <div class="file-name">{{ selected }}</div>
+            <button class="delete-button btn btn-danger" (click)="removeSelectedFile(index)">
+              Delete
+            </button>
+          </div>
+
+          <!-- Loading spinner message -->
+          <p class="loading" *ngIf="isLoading">Loading...</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <!-- Upload and close buttons -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!fileList.length"
+          data-bs-dismiss="modal"
+          (click)="uploadFiles()"
+        >
+          Upload
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="closeScreen()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Spinner component for loading indication -->
+<ngx-spinner size="medium" [type]="typeSelected">
+  <p>{{ spinnerMessage }}</p>
+</ngx-spinner>
