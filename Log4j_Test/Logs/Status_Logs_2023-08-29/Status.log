@@ -1,0 +1,3 @@
+2023-08-29 12:15:31.367 INFO [main] [com.newgen.convert.UserDir.main(UserDir.java:47)] - GENERATE_DEBUG_LOGS : Y
+2023-08-29 12:15:31.371 INFO [main] [com.newgen.convert.UserDir.main(UserDir.java:49)] - Bucket : Y
+2023-08-29 12:15:31.371 INFO [main] [com.newgen.convert.UserDir.main(UserDir.java:51)] - ENDPOINT : https://rhmkeazva.mediaconvert.ap-southeast-1.amazonaws.com/
